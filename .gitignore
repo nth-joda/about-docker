@@ -477,4 +477,4 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/yarn,node,visualstudiocode,python,django,java,maven
 
-.__Language__/*
+__Languages__/*
