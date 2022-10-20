@@ -1,0 +1,86 @@
+
+/* * Remember to re-defined the color code to the glbal style */
+:root {
+    --primary: #4628ff;
+    --warning: #ffd028;
+    --danger: #eb3f27;
+    --success: #75fa83;
+    --white: #fdfdfd;
+    --dark: #181717; 
+}
+
+/* * Remember to install font Roboto */
+.mcbtn{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transfrom 0.3s ease;
+}
+
+.mcbtn:hover{
+    transform: translateY(-3px);
+}
+
+.btn--primary--solid{
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+
+}
+
+.btn--warning--solid{
+
+}
+
+.btn--danger--solid{
+
+}
+.btn--success--solid{
+
+}
+
+.btn--primary--outline{
+
+}
+
+.btn--warning--outline{
+
+}
+
+.btn--danger--outlined{
+
+}
+
+.btn--success--outline{
+
+}
+
+
+/* TODO: Fit these number to your product */
+.btn--medium{
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.btn--small{
+    padding: 15px 30px;
+    font-size: 20px;
+}
+
+.btn--fwidth-fheight{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+
+.btn--fwidth-sheight{
+    width: 100%;
+    font-size: 20px;
+}
+
+.btn--fwidth-mheight{}
+
+.btn--swidth-fheight{}
+
+.btn--mwidth-fheight{}

@@ -1,0 +1,69 @@
+.hv-btn {
+  border: 1px solid #3498db;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+.hv-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #3498db;
+
+  z-index: -1;
+  transition: 0.8s;
+}
+
+.hv-btn--solid-up,
+.hv-btn--solid-down {
+  color: #3498db;
+}
+
+.hv-btn--transparent-up,
+.hv-btn--transparent-down {
+  color: #fff;
+}
+
+.hv-btn--solid-up:hover,
+.hv-btn--solid-down:hover {
+  color: #fff;
+}
+
+.hv-btn--transparent-up:hover,
+.hv-btn--transparent-down:hover {
+  color: #3498db;
+}
+
+.hv-btn--solid-down::before,
+.hv-btn--transparent-up::before {
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+
+.hv-btn--solid-up::before,
+.hv-btn--transparent-down::before {
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.hv-btn--transparent-down::before,
+.hv-btn--transparent-up::before {
+  height: 200%;
+}
+
+.hv-btn--solid-up:hover::before,
+.hv-btn--solid-down:hover::before {
+  height: 200%;
+}
+
+.hv-btn--transparent-up:hover::before,
+.hv-btn--transparent-down:hover::before {
+  height: 0%;
+}
