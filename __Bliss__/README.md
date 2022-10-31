@@ -28,23 +28,44 @@ B3: 8-9. 11/11
 
 # Java
 1. Collections:
-    - Collection ~Iterator
-    - Set 
-        - TreeSet
-        - HashSet
-        - EnumSet
+
+<img src="https://images.viblo.asia/363a4ddb-6a25-44e7-b1e7-7e4f81f1b17a.gif" />
+
+    - Collection ~> Iterator: Base, cac interface khac ke thua tu Collection
+    - Set : unique values
+        - TreeSet: sorted values already
+        - HashSet: using Hash Table
+        - EnumSet: elements are ENUM
     - List:
-        - ArrayList
-        - LinkedList
-        - Vector
-        - Stack
+        - ArrayList: changable size array
+
+        ```java
+            import java.util.*;  
+            class TestJavaCollection1{  
+                public static void main(String args[]){  
+                    ArrayList<String> list=new ArrayList<String>();//Creating arraylist  
+                    list.add("Ravi");//Adding object in arraylist  
+                    list.add("Vijay");  
+                    list.add("Ravi");  
+                    list.add("Ajay");  
+                    //Traversing list through Iterator  
+                    Iterator itr=list.iterator();  
+                    while(itr.hasNext()){  
+                        System.out.println(itr.next());  
+                    }  
+                }  
+            }  
+        ```
+
+        - LinkedList: double-linked list
+        - Vector: ~ ArrayList, synchronized, dynamic array
+        - Stack: based onb stack = LIFO (last-in-first-out)
     - Queue
         - LinkedList
         - PriorityQueue
-        - ArrayDeque
+        - ArrayDeque: queue 2 directions
     - Map
-        - TreeMap
-        - HashMap
-        - EnumMap
+        - TreeMap: cây đỏ đen (Red-Black tree) trong đó các key đã được sắp xếp
+        - HashMap: using HashTable --> effective search (O(1))
+        - EnumMap: 
         - WeakHashMap
-        
