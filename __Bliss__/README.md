@@ -1,10 +1,10 @@
 Learn
 1. #Java
     -  thread
-    - collection
-    -  kiểu dữ liệu. bytes…
+    -  collection
+    -  kiểu dữ liệu
     -  data
-    - design pattern
+    -  design pattern
 2. #Git flow
 tên branch : featureA -> merged to Dev to test
 4. #Redis 
@@ -60,12 +60,29 @@ B3: 8-9. 11/11
         - LinkedList: double-linked list
         - Vector: ~ ArrayList, synchronized, dynamic array
         - Stack: based onb stack = LIFO (last-in-first-out)
+
     - Queue
         - LinkedList
         - PriorityQueue
         - ArrayDeque: queue 2 directions
+
     - Map
         - TreeMap: cây đỏ đen (Red-Black tree) trong đó các key đã được sắp xếp
         - HashMap: using HashTable --> effective search (O(1))
         - EnumMap: 
         - WeakHashMap
+
+2. kiểu dữ liệu. bytes…
+    - Primitives
+        - Boolean (1 bit)
+        - Char (2 bytes)
+        - Byte (1 byte) : [-128, 127]
+        - Short (2 bytes) : [-32000, 32000]
+        - Int (4 bytes): [-2ty, 2ty]
+        - Long (8 bytes): 
+        - Float (4 bytes)
+        - Double (8 bytes)
+    - None Primitives
+        - String
+        - Array
+        - Class
