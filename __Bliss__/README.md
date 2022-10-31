@@ -5,10 +5,13 @@ Learn
     -  kiểu dữ liệu
     -  data
     -  design pattern
+
 2. #Git flow
 tên branch : featureA -> merged to Dev to test
+
 4. #Redis 
 what, Use case
+
 6. #Rabbit MQ
 
 7. #Gearman 
@@ -21,16 +24,16 @@ Basic comands
 
 5. #MySql 
 9. #Angular 
+
 B1: 1-4. 3/11
 B2: 5-7. 8/11
 B3: 8-9. 11/11
 -----------------
 
 # Java
-1. Collections:
-
 <img src="https://images.viblo.asia/363a4ddb-6a25-44e7-b1e7-7e4f81f1b17a.gif" />
 
+1. Collections:
     - Collection ~> Iterator: Base, cac interface khac ke thua tu Collection
     - Set : unique values
         - TreeSet: sorted values already
@@ -86,3 +89,10 @@ B3: 8-9. 11/11
         - String
         - Array
         - Class
+
+# Linux - ubuntu
+--------------
+
+
+# Redis
+--------------------------------
