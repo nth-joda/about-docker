@@ -95,4 +95,65 @@ B3: 8-9. 11/11
 
 
 # Redis
+--> (+) nhanh, da dung, open source, many data types, persistence
+--> (-) cost, storage, No UI
 --------------------------------
+1. Kieu DL:
+    - String 
+    - List
+    - Hash
+    - Set
+    - Sorted Set
+    - Bit Map
+    - Geospatial indexes
+    - Streams
+2. Use Cases:
+    - Caching
+3. Commands:
+    ```redis
+        SET <key> <value> : Them/sua gtri cua 1 key
+        GET <key> : Lay gtri cua key
+
+        EXISTS <key> : (integer) tra ve so luong gia tri cua key
+
+        EXPIRE <key> <number_seconds_to_delete>: Set khoang t/g ton tai
+        TLL <key>: number of seconds to live
+
+        <----STRING-------->
+        STRLEN <key>: length of key (of string type)
+
+        APPEND <key> "<string_of_value_to_append>": add the value to the key's old
+
+        SETRANGE <key> <num_last_letters> <replacing_value>: Thay doi <num> last letter bang <value>
+
+        <----NUM-------->
+        INCR <key> : increase value of <key> by 1 unit
+        DECR <key> : decrease ....
+
+        INCRBY <key> <value>: increase value of <key> by <value> unit
+        DECRBY <key> <value>: decrease ....
+
+        <----ARRAY------->
+        RPUSH <key> <value>: add <value> to the bottom of the <key>
+        LPUSH <key> <value>: .........top.....
+
+        LRANGE <key> <index_1> <index_2>: Lay cac gia tri trong <key> tu vi tri <index_1> den vi tri <index_2> tu Left to Right
+
+        LPOP <key>: (tra ve element) xoa element o vi tri dau.
+        RPOP <key>: (tra ve element) xoa element o vi tri cuoi.
+
+        LINDEX <key> <index>: tra ve element of vi tri <index>
+        LLEN <key>: tra ve chieu dai cua ds <key>
+        LSET <key> <index> <element>: gan gtri element o vi tri <index> bang <element>
+
+        DEL <key> : xoa ca ds <key>
+
+        <---HASH------>
+        HSET <key> <field> <value>: set <value> into <field> of hashtable <key>
+        HGET <key> <field>: get value of <field>
+
+        HMSET <key> [<field> <value>] : set <value> into relavant <field>
+        HMGET <key> [<field>]: get values of [<field>]
+
+
+    ```
