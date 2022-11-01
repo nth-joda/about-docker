@@ -34,7 +34,7 @@ B3: 8-9. 11/11
 <img src="https://images.viblo.asia/363a4ddb-6a25-44e7-b1e7-7e4f81f1b17a.gif" />
 
 1. Collections:
-    - Collection ~> Iterator: Base, cac interface khac ke thua tu Collection
+    - Collection kethua Iterator: Base, cac interface khac ke thua tu Collection
     - Set : unique values
         - TreeSet: sorted values already
         - HashSet: using Hash Table
@@ -89,6 +89,13 @@ B3: 8-9. 11/11
         - String
         - Array
         - Class
+
+3. Thread
+    - Do multiple tasks at same time
+    - 2 ways to create a thread:
+        - extends the `Thread`
+        - implement `Runnable`
+
 
 # Linux - ubuntu
 --------------
@@ -154,6 +161,5 @@ B3: 8-9. 11/11
 
         HMSET <key> [<field> <value>] : set <value> into relavant <field>
         HMGET <key> [<field>]: get values of [<field>]
-
-
     ```
+    
