@@ -130,3 +130,208 @@ Review
 #### 1.3.2 Non-Primitives
 
 ### 1.4 Design patterns
+#### 1.4.1 Factory Method
+- Why? 
+    - Do not care the specific class of an instance --> Easier for scability
+    <img src="https://refactoring.guru/images/patterns/diagrams/factory-method/structure.png" />
+    - Chỉ cần quann tâm nó là `Product`
+    ```java
+    Product Creator.createProduct(String productType){
+        if(productType == "a") return new A();
+        else if (productType == "b") return new B();
+        return null;
+    }
+
+    Product a = Creator.createProduct("a");
+    Product b = Creator.createProduct("b");
+    ```
+
+#### 1.4.2 Builder
+
+- Giảm nhẹ việc tạo instance với nhiều params.
+- Tách biệt param bắt buộc và param optional: `ComputerBuilder(
+            "500 GB", "2 GB").setBluetoothEnabled(true)
+            .setGraphicsCardEnabled(true).build(); `
+
+```java
+package com.journaldev.design.builder;
+
+public class Computer {
+	
+	//required parameters
+	private String HDD;
+	private String RAM;
+	
+	//optional parameters
+	private boolean isGraphicsCardEnabled;
+	private boolean isBluetoothEnabled;
+	
+
+	public String getHDD() {
+		return HDD;
+	}
+
+	public String getRAM() {
+		return RAM;
+	}
+
+	public boolean isGraphicsCardEnabled() {
+		return isGraphicsCardEnabled;
+	}
+
+	public boolean isBluetoothEnabled() {
+		return isBluetoothEnabled;
+	}
+	
+	private Computer(ComputerBuilder builder) {
+		this.HDD=builder.HDD;
+		this.RAM=builder.RAM;
+		this.isGraphicsCardEnabled=builder.isGraphicsCardEnabled;
+		this.isBluetoothEnabled=builder.isBluetoothEnabled;
+	}
+	
+	//Builder Class
+	public static class ComputerBuilder{
+
+		// required parameters
+		private String HDD;
+		private String RAM;
+
+		// optional parameters
+		private boolean isGraphicsCardEnabled;
+		private boolean isBluetoothEnabled;
+		
+		public ComputerBuilder(String hdd, String ram){
+			this.HDD = hdd;
+			this.RAM = ram;
+		}
+
+		public ComputerBuilder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
+			this.isGraphicsCardEnabled = isGraphicsCardEnabled;
+			return this;
+		}
+
+		public ComputerBuilder setBluetoothEnabled(boolean isBluetoothEnabled) {
+			this.isBluetoothEnabled = isBluetoothEnabled;
+			return this;
+		}
+		
+		public Computer build(){
+			return new Computer(this);
+		}
+
+	}
+
+}
+```
+
+```java
+package com.journaldev.design.test;
+
+import com.journaldev.design.builder.Computer;
+
+public class TestBuilderPattern {
+
+	public static void main(String[] args) {
+		//Using builder to get the object in a single line of code and 
+                //without any inconsistent state or arguments management issues		
+		Computer comp = new Computer.ComputerBuilder(
+				"500 GB", "2 GB").setBluetoothEnabled(true)
+				.setGraphicsCardEnabled(true).build();
+	}
+
+}
+```
+
+#### 1.4.3 Prototype
+
+- Tạo (copy) object dựa trên 1 object mẫu với low cost
+- Class có các phương thức (shadow/deep)copy:
+- Khi dùng:
+    ```c#
+        // Thực thi shallow copy của P1 và truyền nó cho P1
+        Person p2 = p1.ShallowCopy();
+        // Thực thi deep copy của P1 và truyền cho P3, no reflection
+        Person p3 = p1.DeepCopy();
+    ```
+
+```c#
+public class Person
+    {
+        public int Age;
+        public DateTime BirthDate;
+        public string Name;
+        public IdInfo IdInfo;
+
+        //Các object con bên trong chỉ được copy reference. Nghĩa là chỉ nhân bản được value type.
+        public Person ShallowCopy()
+        {
+            return (Person)this.MemberwiseClone();
+        }
+
+        //Các object con bên trong cũng được copy lại toàn bộ các thuộc tính.
+        public Person DeepCopy()
+        {
+            Person clone = (Person)this.MemberwiseClone();
+            clone.IdInfo = new IdInfo(IdInfo.IdNumber);
+            clone.Name = String.Copy(Name);
+            return clone;
+        }
+    }
+
+    public class IdInfo
+    {
+        public int IdNumber;
+
+        public IdInfo(int idNumber)
+        {
+            this.IdNumber = idNumber;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p1 = new Person();
+            p1.Age = 42;
+            p1.BirthDate = Convert.ToDateTime("1977-01-01");
+            p1.Name = "Jack Daniels";
+            p1.IdInfo = new IdInfo(666);
+
+            // Thực thi shallow copy của P1 và truyền nó cho P1
+            Person p2 = p1.ShallowCopy();
+            // Thực thi deep copy của P1 và truyền cho P3
+            Person p3 = p1.DeepCopy();
+
+            // Hiển thị giá trị P1, P2, P3
+            Console.WriteLine("Original values of p1, p2, p3:");
+            Console.WriteLine("   p1 instance values: ");
+            DisplayValues(p1);
+            Console.WriteLine("   p2 instance values:");
+            DisplayValues(p2);
+            Console.WriteLine("   p3 instance values:");
+            DisplayValues(p3);
+
+            // Thay đổi giá trị của thuộc tính P1 và hiển thị giá trị P1, P2, P3
+            p1.Age = 32;
+            p1.BirthDate = Convert.ToDateTime("1900-01-01");
+            p1.Name = "Frank";
+            p1.IdInfo.IdNumber = 7878;
+            Console.WriteLine("\nValues of p1, p2 and p3 after changes to p1:");
+            Console.WriteLine("   p1 instance values: ");
+            DisplayValues(p1);
+            Console.WriteLine("   p2 instance values (reference values have changed):");
+            DisplayValues(p2);
+            Console.WriteLine("   p3 instance values (everything was kept the same):");
+            DisplayValues(p3);
+        }
+
+        public static void DisplayValues(Person p)
+        {
+            Console.WriteLine("      Name: {0:s}, Age: {1:d}, BirthDate: {2:MM/dd/yy}",
+                p.Name, p.Age, p.BirthDate);
+            Console.WriteLine("      ID#: {0:d}", p.IdInfo.IdNumber);
+        }
+    }   
+```

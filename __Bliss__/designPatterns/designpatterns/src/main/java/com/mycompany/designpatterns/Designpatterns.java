@@ -5,6 +5,10 @@
 
 package com.mycompany.designpatterns;
 
+import com.mycompany.designpatterns.FlyweightExample.AbstractFactoryEx2.Chair;
+import com.mycompany.designpatterns.FlyweightExample.AbstractFactoryEx2.FunitureFactoryAbstract;
+import com.mycompany.designpatterns.FlyweightExample.AbstractFactoryEx2.FunitureFactoryCreator;
+import com.mycompany.designpatterns.FlyweightExample.AbstractFactoryEx2.Table;
 import com.mycompany.designpatterns.AbstractFactoryExample.ComputerFactory;
 import com.mycompany.designpatterns.AbstractFactoryExample.PcFactory;
 import com.mycompany.designpatterns.AbstractFactoryExample.ServerFactory;
@@ -35,13 +39,20 @@ public class Designpatterns {
         System.out.println("v----------Abstract Factory-----------------v");
         Computer pc = ComputerFactory.getComputer(new PcFactory("2 GB","500 GB","2.4 GHz"));
         System.out.println(pc);
-        Computer server = ComputerFactory.getComputer(new ServerFactory("16 GB","1 TB","2.9 GHz"));
-        System.out.println(server);
+        Computer machine = ComputerFactory.getComputer(new ServerFactory("16 GB","1 TB","2.9 GHz"));
+        System.out.println(machine);
         System.out.println("^----------END AbstractFactory-------------^");
 
         System.out.println("v----------Flyweight-----------------v");
         DrawingClient drawing = new DrawingClient(500,600);
         System.out.println("^----------END Flyweight-------------^");
+
+        System.out.println("v----------Abstract Factory-----------------v");
+        FunitureFactoryAbstract factory = FunitureFactoryCreator.getFunitureFactory("plastic");
+
+        Chair myChair = factory.createChair();
+        Table myTable = factory.createTable();
+        System.out.println("^----------END Abstract Factory-------------^");
 
 
     }
