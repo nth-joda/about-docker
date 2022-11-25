@@ -65,3 +65,4 @@ Cascading is the way to achieve this. ***When we perform some action on the targ
 | **REFRESH**                                                                     	|                               	|
 | **DETACH**: tách quan hệ M and S                                                	|                               	|
 -------------------
+https://medium.com/learnwithnk/best-practices-in-spring-boot-project-structure-layers-of-microservice-versioning-in-api-cadf62bd3459
